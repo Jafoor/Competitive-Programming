@@ -52,25 +52,21 @@ long long  gcd(long long  a, long long b)
     return gcd(b, a % b);
 }
 
-
-void print1to10(int n){
+int binomialCof(int n, int k){
     
-    cout<<n<<endl;
-    if(n==0)
-        return;
-    else
-        print1to10(n-1);
-    
+    if(n==k)
+        return 1;
+    if(k==1)
+        return n;
+    return binomialCof(n-1, k-1)+binomialCof(n-1, k);
 }
-    
-    
 
 
 int main(){
     
-    cout<<"Enter an integer input : "<<endl;
-    int n;
-    cin>>n;
-    print1to10(n);
-
+    cout<<"Enter two integer input : "<<endl;
+    int n,k;
+    cin>>n>>k;
+    cout<<"Output : "<<binomialCof(n, k)<<endl;
+    
 }

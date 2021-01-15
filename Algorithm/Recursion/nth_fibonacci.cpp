@@ -52,25 +52,19 @@ long long  gcd(long long  a, long long b)
     return gcd(b, a % b);
 }
 
-
-void print1to10(int n){
+int nthfib(int n){
     
-    cout<<n<<endl;
-    if(n==0)
-        return;
+    if (n<=1)
+        return n;
     else
-        print1to10(n-1);
-    
+        return nthfib(n-1)+nthfib(n-2);
+        
 }
-    
-    
-
 
 int main(){
     
-    cout<<"Enter an integer input : "<<endl;
+    cout<<"Enter nth fibonacci : "<<endl;
     int n;
     cin>>n;
-    print1to10(n);
-
+    cout<<"Nth fibonacci is : "<<nthfib(n)<<endl;
 }

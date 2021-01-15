@@ -53,14 +53,12 @@ long long  gcd(long long  a, long long b)
 }
 
 
-void print1to10(int n){
+int sum(int n){
     
-    cout<<n<<endl;
-    if(n==0)
-        return;
+    if(n==1)
+        return 1;
     else
-        print1to10(n-1);
-    
+        return n + sum(n-1);
 }
     
     
@@ -71,6 +69,6 @@ int main(){
     cout<<"Enter an integer input : "<<endl;
     int n;
     cin>>n;
-    print1to10(n);
+    cout<<"Sum is : " <<sum(n)<<endl;
 
 }

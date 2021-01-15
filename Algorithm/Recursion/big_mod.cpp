@@ -52,25 +52,23 @@ long long  gcd(long long  a, long long b)
     return gcd(b, a % b);
 }
 
-
-void print1to10(int n){
+int bigmod(int base, int power, int mod){
     
-    cout<<n<<endl;
-    if(n==0)
-        return;
+    if(power == 0)
+        return 1;
+    if(power==1)
+        return base%mod;
+    if(power%2==1)
+        return (base % mod) * bigmod(base, power-1, mod)%mod;
     else
-        print1to10(n-1);
-    
+        return bigmod(base * base, power/2, mod)%mod;
 }
-    
-    
-
 
 int main(){
     
-    cout<<"Enter an integer input : "<<endl;
-    int n;
-    cin>>n;
-    print1to10(n);
-
+    cout<<"Enter base, power, mod_value integer input : "<<endl;
+    int base, power, mod;
+    cin>>base>>power>>mod;
+    cout<<"Output : "<<bigmod(base,power,mod)<<endl;
+    
 }
